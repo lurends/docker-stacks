@@ -7,8 +7,8 @@ ARG BASE_CONTAINER=ubuntu:bionic-20200112@sha256:bc025862c3e8ec4a8754ea4756e33da
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
-ARG NB_USER="jovyan"
-ARG NB_UID="1000"
+ARG NB_USER="myttshen"
+ARG NB_UID="1026"
 ARG NB_GID="100"
 
 USER root
@@ -38,7 +38,9 @@ ENV CONDA_DIR=/opt/conda \
     NB_GID=$NB_GID \
     LC_ALL=en_US.UTF-8 \
     LANG=en_US.UTF-8 \
-    LANGUAGE=en_US.UTF-8
+    LANGUAGE=en_US.UTF-8 \
+    PYTHONIOENCODING=utf-8 \
+    GRANT_SUDO=yes
 ENV PATH=$CONDA_DIR/bin:$PATH \
     HOME=/home/$NB_USER
 
